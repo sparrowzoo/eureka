@@ -58,6 +58,7 @@ public class ExampleEurekaService {
 
     public static void main(String[] args) {
 
+        System.setProperty("eureka.client.props","sample-eureka-service");
         DynamicPropertyFactory configInstance = com.netflix.config.DynamicPropertyFactory.getInstance();
         ApplicationInfoManager applicationInfoManager = initializeApplicationInfoManager(new MyDataCenterInstanceConfig());
         EurekaClient eurekaClient = initializeEurekaClient(applicationInfoManager, new DefaultEurekaClientConfig());
