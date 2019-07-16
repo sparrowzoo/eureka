@@ -92,7 +92,7 @@ public class EurekaClientServerRestIntegrationTest {
         );
     }
 
-    @AfterClass
+    //@AfterClass
     public static void tearDown() throws Exception {
         removeEurekaConfiguration();
         if (jerseyReplicationClient != null) {
@@ -111,7 +111,10 @@ public class EurekaClientServerRestIntegrationTest {
         InstanceInfo instanceInfo = instanceInfoIt.next();
         EurekaHttpResponse<Void> httpResponse = jerseyEurekaClient.register(instanceInfo);
 
-        assertThat(httpResponse.getStatusCode(), is(equalTo(204)));
+        while (true){
+            Thread.sleep(1000L);
+        }
+        //assertThat(httpResponse.getStatusCode(), is(equalTo(204)));
     }
 
     @Test
